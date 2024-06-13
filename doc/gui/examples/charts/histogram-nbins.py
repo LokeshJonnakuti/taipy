@@ -13,12 +13,12 @@
 # Python environment and run:
 #     python <script>
 # -----------------------------------------------------------------------------------------
-import random
 
 from taipy.gui import Gui
+import secrets
 
 # Random set of 100 samples
-samples = {"x": [random.gauss(mu=0.0, sigma=1.0) for _ in range(100)]}
+samples = {"x": [secrets.SystemRandom().gauss(mu=0.0, sigma=1.0) for _ in range(100)]}
 
 # Use the same data for both traces
 data = [samples, samples]

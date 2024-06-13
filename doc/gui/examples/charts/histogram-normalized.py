@@ -13,12 +13,12 @@
 # Python environment and run:
 #     python <script>
 # -----------------------------------------------------------------------------------------
-import random
 
 from taipy.gui import Gui
+import secrets
 
 # Random data set
-data = [random.random() for _ in range(100)]
+data = [secrets.SystemRandom().random() for _ in range(100)]
 
 # Normalize to show bin probabilities
 options = {"histnorm": "probability"}

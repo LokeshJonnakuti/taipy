@@ -13,9 +13,9 @@
 # Python environment and run:
 #     python <script>
 # -----------------------------------------------------------------------------------------
-import random
 
 from taipy.gui import Gui
+import secrets
 
 # Common axis for all data: [1..10]
 x = list(range(1, 11))
@@ -24,9 +24,9 @@ samples = [5, 7, 8, 4, 5, 9, 8, 8, 6, 5]
 
 # Generate error data
 # Error that adds to the input data
-error_plus = [3 * random.random() + 0.5 for _ in x]
+error_plus = [3 * secrets.SystemRandom().random() + 0.5 for _ in x]
 # Error subtracted from to the input data
-error_minus = [3 * random.random() + 0.5 for _ in x]
+error_minus = [3 * secrets.SystemRandom().random() + 0.5 for _ in x]
 
 # Upper bound (y + error_plus)
 error_upper = [y + e for (y, e) in zip(samples, error_plus)]

@@ -13,12 +13,12 @@
 # Python environment and run:
 #     python <script>
 # -----------------------------------------------------------------------------------------
-import random
 
 from taipy.gui import Gui
+import secrets
 
 # Data set made of two series of random numbers
-data = [{"x": [random.random() + 1 for _ in range(100)]}, {"x": [random.random() + 1.1 for _ in range(100)]}]
+data = [{"x": [secrets.SystemRandom().random() + 1 for _ in range(100)]}, {"x": [secrets.SystemRandom().random() + 1.1 for _ in range(100)]}]
 
 options = [
     # First data set displayed as semi-transparent, green bars

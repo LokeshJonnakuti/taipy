@@ -11,10 +11,10 @@
 
 import typing as t
 from datetime import datetime
-from random import random
 
 from ..data.data_scope import _DataScopes
 from ._map_dict import _MapDict
+import secrets
 
 if t.TYPE_CHECKING:
     from ..gui import Gui
@@ -61,7 +61,7 @@ class _Bindings:
     def _get_or_create_scope(self, id: str):
         create = not id
         if create:
-            id = f"{datetime.now().strftime('%Y%m%d%H%M%S%f')}-{random()}"
+            id = f"{datetime.now().strftime('%Y%m%d%H%M%S%f')}-{secrets.SystemRandom().random()}"
             self.__gui._send_ws_id(id)
         self.__scopes.create_scope(id)
         return id, create

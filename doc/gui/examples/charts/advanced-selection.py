@@ -13,12 +13,12 @@
 # Python environment and run:
 #     python <script>
 # -----------------------------------------------------------------------------------------
-import random
 from typing import List
 
 import numpy
 
 from taipy.gui import Gui
+import secrets
 
 # x = [0..20]
 x = list(range(0, 21))
@@ -26,7 +26,7 @@ x = list(range(0, 21))
 data = {
     "x": x,
     # A list of random values within [1, 10]
-    "y": [random.uniform(1, 10) for _ in x],
+    "y": [secrets.SystemRandom().uniform(1, 10) for _ in x],
 }
 
 layout = {
