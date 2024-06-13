@@ -14,9 +14,9 @@
 #     python <script>
 # -----------------------------------------------------------------------------------------
 import math
+import secrets
 
 from taipy.gui import Gui
-import secrets
 
 # Number of samples
 max_x = 20

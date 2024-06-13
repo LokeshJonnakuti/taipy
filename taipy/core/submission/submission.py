@@ -196,6 +196,7 @@ class Submission(_Entity, _Labeled):
 
     def _update_submission_status(self, job: Job):
         from ._submission_manager_factory import _SubmissionManagerFactory
+
         with self.lock:
             submission_manager = _SubmissionManagerFactory._build_manager()
             submission = submission_manager._get(self)

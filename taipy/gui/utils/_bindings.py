@@ -9,12 +9,12 @@
 # an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
 # specific language governing permissions and limitations under the License.
 
+import secrets
 import typing as t
 from datetime import datetime
 
 from ..data.data_scope import _DataScopes
 from ._map_dict import _MapDict
-import secrets
 
 if t.TYPE_CHECKING:
     from ..gui import Gui

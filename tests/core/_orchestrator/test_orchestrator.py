@@ -295,7 +295,7 @@ def test_blocked_submittable():
         assert _DataManager._get(task_1.bar.id).is_ready_for_reading  # bar becomes ready
         assert _DataManager._get(task_1.bar.id).read() == 2  # the data is computed and written
         assert_true_after_time(job_2.is_running)  # And job 2 can start running
-        assert len(_OrchestratorFactory._dispatcher._dispatched_processes) == 1 # Still one process
+        assert len(_OrchestratorFactory._dispatcher._dispatched_processes) == 1  # Still one process
         # currently used since the previous process is not used anymore
         assert len(_Orchestrator.blocked_jobs) == 0
         assert_submission_status(submission, SubmissionStatus.RUNNING)

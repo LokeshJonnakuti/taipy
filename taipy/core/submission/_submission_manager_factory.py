@@ -19,7 +19,6 @@ from ._submission_sql_repository import _SubmissionSQLRepository
 
 
 class _SubmissionManagerFactory(_ManagerFactory):
-
     __REPOSITORY_MAP = {"default": _SubmissionFSRepository, "sql": _SubmissionSQLRepository}
 
     @classmethod

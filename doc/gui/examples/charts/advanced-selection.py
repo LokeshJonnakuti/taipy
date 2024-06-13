@@ -13,12 +13,12 @@
 # Python environment and run:
 #     python <script>
 # -----------------------------------------------------------------------------------------
+import secrets
 from typing import List
 
 import numpy
 
 from taipy.gui import Gui
-import secrets
 
 # x = [0..20]
 x = list(range(0, 21))

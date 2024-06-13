@@ -85,7 +85,9 @@ class Page:
         return (
             self._class_locals
             if self._is_class_module()
-            else None if (frame := self._get_frame()) is None else _filter_locals(frame.f_locals)
+            else None
+            if (frame := self._get_frame()) is None
+            else _filter_locals(frame.f_locals)
         )
 
     def _is_class_module(self):

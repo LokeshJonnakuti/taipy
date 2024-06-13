@@ -16,6 +16,7 @@ import logging
 import os
 import pathlib
 import re
+import secrets
 import sys
 import time
 import typing as t
@@ -36,7 +37,6 @@ from ._renderers.json import _TaipyJsonProvider
 from .config import ServerConfig
 from .custom._page import _ExternalResourceHandlerManager
 from .utils import _is_in_notebook, _is_port_open, _RuntimeManager
-import secrets
 
 if t.TYPE_CHECKING:
     from .gui import Gui

@@ -131,9 +131,7 @@ class _FilterDataNode:
         raise NotImplementedError
 
     @staticmethod
-    def __filter_dataframe(
-        df_data: pd.DataFrame, operators: Union[List, Tuple], join_operator=JoinOperator.AND
-    ):
+    def __filter_dataframe(df_data: pd.DataFrame, operators: Union[List, Tuple], join_operator=JoinOperator.AND):
         filtered_df_data = []
         if join_operator == JoinOperator.AND:
             how = "inner"
@@ -147,9 +145,7 @@ class _FilterDataNode:
         return _FilterDataNode.__dataframe_merge(filtered_df_data, how) if filtered_df_data else pd.DataFrame()
 
     @staticmethod
-    def __filter_dataframe_per_key_value(
-        df_data: pd.DataFrame, key: str, value, operator: Operator
-    ):
+    def __filter_dataframe_per_key_value(df_data: pd.DataFrame, key: str, value, operator: Operator):
         df_by_col = df_data[key]
         if operator == Operator.EQUAL:
             df_by_col = df_by_col == value

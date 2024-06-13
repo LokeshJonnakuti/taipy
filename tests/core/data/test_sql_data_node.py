@@ -36,6 +36,7 @@ def my_write_query_builder_with_pandas(data: pd.DataFrame):
     insert_data = data.to_dict("records")
     return ["DELETE FROM example", ("INSERT INTO example VALUES (:foo, :bar)", insert_data)]
 
+
 def my_append_query_builder_with_pandas(data: pd.DataFrame):
     insert_data = data.to_dict("records")
     return [("INSERT INTO example VALUES (:foo, :bar)", insert_data)]
@@ -74,7 +75,6 @@ class TestSQLDataNode:
             },
         )
 
-
     if util.find_spec("pymysql"):
         __pandas_properties.append(
             {
@@ -90,7 +90,6 @@ class TestSQLDataNode:
             },
         )
 
-
     if util.find_spec("psycopg2"):
         __pandas_properties.append(
             {
@@ -105,7 +104,6 @@ class TestSQLDataNode:
                 },
             },
         )
-
 
     @pytest.mark.parametrize("pandas_properties", __pandas_properties)
     def test_create(self, pandas_properties):
@@ -125,7 +123,6 @@ class TestSQLDataNode:
         assert dn.exposed_type == "pandas"
         assert dn.read_query == "SELECT * FROM example"
         assert dn.write_query_builder == my_write_query_builder_with_pandas
-
 
     @pytest.mark.parametrize("properties", __pandas_properties)
     def test_get_user_properties(self, properties):
@@ -183,7 +180,6 @@ class TestSQLDataNode:
             dn.write(pd.DataFrame({"foo": [1, 2, 3], "bar": [4, 5, 6]}))
             assert len(engine_mock.mock_calls[4].args) == 1
             assert engine_mock.mock_calls[4].args[0].text == "DELETE FROM example"
-
 
     @pytest.mark.parametrize(
         "tmp_sqlite_path",

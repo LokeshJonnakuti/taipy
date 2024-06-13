@@ -15,7 +15,6 @@ from .._version._version_manager_factory import _VersionManagerFactory
 
 
 class _VersionMixin:
-
     _version_manager = _VersionManagerFactory._build_manager()
 
     @classmethod

@@ -63,7 +63,7 @@ class APISpecExt:
             version=app.config["APISPEC_VERSION"],
             openapi_version=app.config["OPENAPI_VERSION"],
             plugins=[MarshmallowPlugin(), FlaskRestfulPlugin()],
-            **kwargs
+            **kwargs,
         )
 
         blueprint = Blueprint(

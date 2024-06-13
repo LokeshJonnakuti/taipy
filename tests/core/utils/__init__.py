@@ -37,7 +37,8 @@ def assert_submission_status(submission: Submission, expected_status, timeout=12
         time=timeout,
         msg=submission_status_message,
         submission=submission,
-        timeout=timeout)
+        timeout=timeout,
+    )
 
 
 def submission_status_message(submission: Submission, expected_status, timeout=120):

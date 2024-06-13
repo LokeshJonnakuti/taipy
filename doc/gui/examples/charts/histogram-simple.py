@@ -14,8 +14,9 @@
 #     python <script>
 # -----------------------------------------------------------------------------------------
 
-from taipy import Gui
 import secrets
+
+from taipy import Gui
 
 # Random data set
 data = [secrets.SystemRandom().gauss(0, 5) for _ in range(1000)]

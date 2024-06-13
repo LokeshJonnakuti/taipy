@@ -14,8 +14,9 @@
 #     python <script>
 # -----------------------------------------------------------------------------------------
 
-from taipy.gui import Gui
 import secrets
+
+from taipy.gui import Gui
 
 # Number of samples
 n_samples = 10

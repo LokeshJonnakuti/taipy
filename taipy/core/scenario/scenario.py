@@ -237,6 +237,7 @@ class Scenario(_Entity, Submittable, _Labeled):
         _sequence_task_ids: Set[TaskId] = set(task.id if isinstance(task, Task) else task for task in tasks)
         self.__check_sequence_tasks_exist_in_scenario_tasks(name, _sequence_task_ids, self.id, _scenario_task_ids)
         from taipy.core.sequence._sequence_manager_factory import _SequenceManagerFactory
+
         seq_manager = _SequenceManagerFactory._build_manager()
         seq = seq_manager._create(name, tasks, subscribers or [], properties or {}, self.id, self.version)
         if not seq._is_consistent():
@@ -327,11 +328,15 @@ class Scenario(_Entity, Submittable, _Labeled):
         self._sequences[new_name] = self._sequences[old_name]
         del self._sequences[old_name]
         self.sequences = self._sequences  # type: ignore
-        Notifier.publish(Event(EventEntityType.SCENARIO,
-                               EventOperation.UPDATE,
-                               entity_id=self.id,
-                               attribute_name="sequences",
-                               attribute_value=self._sequences))
+        Notifier.publish(
+            Event(
+                EventEntityType.SCENARIO,
+                EventOperation.UPDATE,
+                entity_id=self.id,
+                attribute_name="sequences",
+                attribute_value=self._sequences,
+            )
+        )
 
     @staticmethod
     def __check_sequence_tasks_exist_in_scenario_tasks(

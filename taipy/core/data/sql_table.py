@@ -161,9 +161,7 @@ class SQLTableDataNode(_AbstractSQLDataNode):
         connection.execute(table.insert(), data)
 
     @classmethod
-    def __insert_dataframe(
-        cls, df: pd.DataFrame, table: Any, connection: Any, delete_table: bool
-    ) -> None:
+    def __insert_dataframe(cls, df: pd.DataFrame, table: Any, connection: Any, delete_table: bool) -> None:
         cls.__insert_dicts(df.to_dict(orient="records"), table, connection, delete_table)
 
     @classmethod

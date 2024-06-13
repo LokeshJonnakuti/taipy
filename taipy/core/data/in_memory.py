@@ -92,7 +92,7 @@ class InMemoryDataNode(DataNode):
             edit_in_progress,
             editor_id,
             editor_expiration_date,
-            **properties
+            **properties,
         )
         if default_value is not None and self.id not in in_memory_storage:
             self._write(default_value)

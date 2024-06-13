@@ -14,8 +14,9 @@
 #     python <script>
 # -----------------------------------------------------------------------------------------
 
-from taipy.gui import Gui
 import secrets
+
+from taipy.gui import Gui
 
 # Common axis for all data: [1..10]
 x = list(range(1, 11))

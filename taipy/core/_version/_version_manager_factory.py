@@ -17,7 +17,6 @@ from ._version_sql_repository import _VersionSQLRepository
 
 
 class _VersionManagerFactory(_ManagerFactory):
-
     __REPOSITORY_MAP = {"default": _VersionFSRepository, "sql": _VersionSQLRepository}
 
     @classmethod
