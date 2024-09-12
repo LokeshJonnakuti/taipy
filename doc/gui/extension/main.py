@@ -9,12 +9,12 @@
 # an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
 # specific language governing permissions and limitations under the License.
 
-import random
 import string
 
 from example_library import ExampleLibrary
 
 from taipy.gui import Gui
+import secrets
 
 # Initial value
 label = "Here is some text"
@@ -42,7 +42,7 @@ Colored text: <|{label}|example.label|>
 def on_action(state, id):
     if id == "addChar":
         # Add a random character to the end of 'label'
-        state.label += random.choice(string.ascii_letters)
+        state.label += secrets.choice(string.ascii_letters)
     elif id == "removeChar":
         # Remove the first character of 'label'
         if len(state.label) > 0:

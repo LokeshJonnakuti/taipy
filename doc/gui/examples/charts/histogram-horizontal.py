@@ -13,12 +13,12 @@
 # Python environment and run:
 #     python <script>
 # -----------------------------------------------------------------------------------------
-import random
 
 from taipy.gui import Gui
+import secrets
 
 # Random data set
-data = {"Count": [random.random() for _ in range(100)]}
+data = {"Count": [secrets.SystemRandom().random() for _ in range(100)]}
 
 page = """
 # Histograms - Horizontal

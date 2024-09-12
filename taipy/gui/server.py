@@ -21,7 +21,6 @@ import time
 import typing as t
 import webbrowser
 from importlib import util
-from random import randint
 
 from flask import Blueprint, Flask, json, jsonify, render_template, request, send_from_directory
 from flask_cors import CORS
@@ -37,6 +36,7 @@ from ._renderers.json import _TaipyJsonProvider
 from .config import ServerConfig
 from .custom._page import _ExternalResourceHandlerManager
 from .utils import _is_in_notebook, _is_port_open, _RuntimeManager
+import secrets
 
 if t.TYPE_CHECKING:
     from .gui import Gui
@@ -260,7 +260,7 @@ class _Server:
 
     def _get_random_port(self):  # pragma: no cover
         while True:
-            port = randint(49152, 65535)
+            port = secrets.SystemRandom().randint(49152, 65535)
             if port not in _RuntimeManager().get_used_port() and not _is_port_open(self._host, port):
                 return port
 

@@ -13,12 +13,12 @@
 # Python environment and run:
 #     python <script>
 # -----------------------------------------------------------------------------------------
-import random
 
 from taipy import Gui
+import secrets
 
 # Random data set
-data = [random.gauss(0, 5) for _ in range(1000)]
+data = [secrets.SystemRandom().gauss(0, 5) for _ in range(1000)]
 
 page = """
 # Histogram - Simple

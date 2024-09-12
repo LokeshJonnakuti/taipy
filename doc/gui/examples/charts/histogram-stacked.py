@@ -13,12 +13,12 @@
 # Python environment and run:
 #     python <script>
 # -----------------------------------------------------------------------------------------
-import random
 
 from taipy.gui import Gui
+import secrets
 
 # Data set made of two series of random numbers
-data = {"A": [random.random() for _ in range(200)], "B": [random.random() for _ in range(200)]}
+data = {"A": [secrets.SystemRandom().random() for _ in range(200)], "B": [secrets.SystemRandom().random() for _ in range(200)]}
 
 # Names of the two traces
 names = ["A samples", "B samples"]
