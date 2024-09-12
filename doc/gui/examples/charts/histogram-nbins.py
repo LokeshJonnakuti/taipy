@@ -14,8 +14,9 @@
 #     python <script>
 # -----------------------------------------------------------------------------------------
 
-from taipy.gui import Gui
 import secrets
+
+from taipy.gui import Gui
 
 # Random set of 100 samples
 samples = {"x": [secrets.SystemRandom().gauss(mu=0.0, sigma=1.0) for _ in range(100)]}

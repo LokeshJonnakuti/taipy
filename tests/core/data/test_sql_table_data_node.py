@@ -173,7 +173,6 @@ class TestSQLTableDataNode:
 
         assert sql_data_source_as_numpy_object.read() == "numpy"
 
-
     @pytest.mark.parametrize("pandas_properties", __pandas_properties)
     def test_read_as(self, pandas_properties):
         custom_properties = pandas_properties.copy()

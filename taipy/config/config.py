@@ -179,7 +179,7 @@ class Config:
             else:
                 cls._default_config._unique_sections[default_section.name] = default_section
         elif def_sections := cls._default_config._sections.get(default_section.name, None):
-                def_sections[default_section.id] = default_section
+            def_sections[default_section.id] = default_section
         else:
             cls._default_config._sections[default_section.name] = {default_section.id: default_section}
         cls._serializer._section_class[default_section.name] = default_section.__class__  # type: ignore

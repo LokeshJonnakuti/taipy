@@ -19,15 +19,12 @@ from ._cycle_sql_repository import _CycleSQLRepository
 
 
 class _CycleManagerFactory(_ManagerFactory):
-
     __REPOSITORY_MAP = {"default": _CycleFSRepository, "sql": _CycleSQLRepository}
 
     @classmethod
     def _build_manager(cls) -> Type[_CycleManager]:  # type: ignore
         if cls._using_enterprise():
-            cycle_manager = _load_fct(
-                cls._TAIPY_ENTERPRISE_CORE_MODULE + ".cycle._cycle_manager", "_CycleManager"
-            )  # type: ignore
+            cycle_manager = _load_fct(cls._TAIPY_ENTERPRISE_CORE_MODULE + ".cycle._cycle_manager", "_CycleManager")  # type: ignore
             build_repository = _load_fct(
                 cls._TAIPY_ENTERPRISE_CORE_MODULE + ".cycle._cycle_manager_factory", "_CycleManagerFactory"
             )._build_repository  # type: ignore

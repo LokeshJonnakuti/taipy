@@ -23,7 +23,6 @@ class _Topic:
         operation: Optional[EventOperation] = None,
         attribute_name: Optional[str] = None,
     ):
-
         self.entity_type = entity_type
         self.entity_id = entity_id
         self.operation = self.__preprocess_operation(operation, self.entity_type)
@@ -33,7 +32,6 @@ class _Topic:
     def __preprocess_attribute_name(
         cls, attribute_name: Optional[str] = None, operation: Optional[EventOperation] = None
     ) -> Optional[str]:
-
         # if operation in _NO_ATTRIBUTE_NAME_OPERATIONS and attribute_name is not None:
         #     raise InvalidEventAttributeName
         return attribute_name

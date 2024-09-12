@@ -9,12 +9,12 @@
 # an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
 # specific language governing permissions and limitations under the License.
 
+import secrets
 import string
 
 from example_library import ExampleLibrary
 
 from taipy.gui import Gui
-import secrets
 
 # Initial value
 label = "Here is some text"

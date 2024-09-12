@@ -19,7 +19,6 @@ from ._scenario_sql_repository import _ScenarioSQLRepository
 
 
 class _ScenarioManagerFactory(_ManagerFactory):
-
     __REPOSITORY_MAP = {"default": _ScenarioFSRepository, "sql": _ScenarioSQLRepository}
 
     @classmethod

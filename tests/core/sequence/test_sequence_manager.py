@@ -122,7 +122,7 @@ def test_set_and_get():
 
     # We save the first sequence again. We expect an exception and nothing to change
     with pytest.raises(SequenceAlreadyExists):
-       scenario.add_sequence(sequence_name_1, [])
+        scenario.add_sequence(sequence_name_1, [])
     sequence_1 = scenario.sequences[sequence_name_1]
     assert _SequenceManager._get(sequence_id_1).id == sequence_1.id
     assert len(_SequenceManager._get(sequence_id_1).tasks) == 0

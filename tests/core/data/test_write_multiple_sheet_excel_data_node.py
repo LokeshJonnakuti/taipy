@@ -35,6 +35,7 @@ def cleanup(tmp_excel_file):
             os.remove(tmp_excel_file)
         except Exception as e:
             from taipy.logger._taipy_logger import _TaipyLogger
+
             logger = _TaipyLogger._get_logger()
             logger.error(f"Failed to delete {tmp_excel_file}. {e}")
 
@@ -184,10 +185,7 @@ def test_write_with_header_multiple_sheet_custom_exposed_type_with_sheet_name(tm
 
 
 def test_write_with_header_multiple_sheet_custom_exposed_type_without_sheet_name(tmp_excel_file):
-    excel_dn = ExcelDataNode(
-        "foo",
-        Scope.SCENARIO,
-        properties={"path": tmp_excel_file, "exposed_type": MyCustomObject})
+    excel_dn = ExcelDataNode("foo", Scope.SCENARIO, properties={"path": tmp_excel_file, "exposed_type": MyCustomObject})
 
     row_1 = [MyCustomObject(0, 1, "hi"), MyCustomObject(1, 2, "world"), MyCustomObject(2, 3, "text")]
     row_2 = [MyCustomObject(0, 4, "hello"), MyCustomObject(1, 5, "abc"), MyCustomObject(2, 6, ".")]
@@ -202,9 +200,7 @@ def test_write_with_header_multiple_sheet_custom_exposed_type_without_sheet_name
 
 def test_write_without_header_multiple_sheet_pandas_with_sheet_name(tmp_excel_file):
     excel_dn = ExcelDataNode(
-        "foo",
-        Scope.SCENARIO,
-        properties={"path": tmp_excel_file, "sheet_name": sheet_names, "has_header": False}
+        "foo", Scope.SCENARIO, properties={"path": tmp_excel_file, "sheet_name": sheet_names, "has_header": False}
     )
 
     df_1 = pd.DataFrame([*zip([1, 2, 3])])
@@ -292,9 +288,7 @@ def test_write_without_header_multiple_sheet_numpy_with_sheet_name(tmp_excel_fil
 
 def test_write_without_header_multiple_sheet_numpy_without_sheet_name(tmp_excel_file):
     excel_dn = ExcelDataNode(
-        "foo",
-        Scope.SCENARIO,
-        properties={"path": tmp_excel_file, "exposed_type": "numpy", "has_header": False}
+        "foo", Scope.SCENARIO, properties={"path": tmp_excel_file, "exposed_type": "numpy", "has_header": False}
     )
 
     arr_1 = np.array([[1], [2], [3]])
@@ -343,9 +337,7 @@ def test_write_without_header_multiple_sheet_custom_exposed_type_with_sheet_name
 
 def test_write_without_header_multiple_sheet_custom_exposed_type_without_sheet_name(tmp_excel_file):
     excel_dn = ExcelDataNode(
-        "foo",
-        Scope.SCENARIO,
-        properties={"path": tmp_excel_file, "exposed_type": MyCustomObject, "has_header": False}
+        "foo", Scope.SCENARIO, properties={"path": tmp_excel_file, "exposed_type": MyCustomObject, "has_header": False}
     )
 
     row_1 = [MyCustomObject(0, 1, "hi"), MyCustomObject(1, 2, "world"), MyCustomObject(2, 3, "text")]

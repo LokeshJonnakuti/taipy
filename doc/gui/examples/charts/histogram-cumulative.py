@@ -14,8 +14,9 @@
 #     python <script>
 # -----------------------------------------------------------------------------------------
 
-from taipy.gui import Gui
 import secrets
+
+from taipy.gui import Gui
 
 # Random data set
 data = [secrets.SystemRandom().random() for _ in range(500)]

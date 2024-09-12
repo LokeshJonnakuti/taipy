@@ -19,15 +19,12 @@ from ._job_sql_repository import _JobSQLRepository
 
 
 class _JobManagerFactory(_ManagerFactory):
-
     __REPOSITORY_MAP = {"default": _JobFSRepository, "sql": _JobSQLRepository}
 
     @classmethod
     def _build_manager(cls) -> Type[_JobManager]:  # type: ignore
         if cls._using_enterprise():
-            job_manager = _load_fct(
-                cls._TAIPY_ENTERPRISE_CORE_MODULE + ".job._job_manager", "_JobManager"
-            )  # type: ignore
+            job_manager = _load_fct(cls._TAIPY_ENTERPRISE_CORE_MODULE + ".job._job_manager", "_JobManager")  # type: ignore
             build_repository = _load_fct(
                 cls._TAIPY_ENTERPRISE_CORE_MODULE + ".job._job_manager_factory", "_JobManagerFactory"
             )._build_repository  # type: ignore

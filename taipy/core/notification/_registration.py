@@ -19,7 +19,6 @@ from .registration_id import RegistrationId
 
 
 class _Registration:
-
     _ID_PREFIX = "REGISTRATION"
     __SEPARATOR = "_"
 
@@ -30,7 +29,6 @@ class _Registration:
         operation: Optional[EventOperation] = None,
         attribute_name: Optional[str] = None,
     ):
-
         self.registration_id: str = self._new_id()
         self.topic: _Topic = _Topic(entity_type, entity_id, operation, attribute_name)
         self.queue: SimpleQueue = SimpleQueue()
